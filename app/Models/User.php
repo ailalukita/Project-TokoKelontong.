@@ -13,15 +13,16 @@ class User extends Authenticatable
     /** @use HasFactory<UserFactory> */
     use HasFactory, Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var list<string>
-     */
+    
+    public function sales() { return $this->hasMany(Sale::class); }
+    
+    public function isAdmin(): bool { return $this->role === 'admin'; }
+    
     protected $fillable = [
         'name',
         'email',
         'password',
+        'role',
     ];
 
     /**
