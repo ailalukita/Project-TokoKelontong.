@@ -30,7 +30,7 @@ class SaleController extends Controller
         $sale = $service->checkout($request->validated(), $request->user()->id);
 
         return redirect()->route('sales.show', $sale)->with('success', 'Transaksi berhasil disimpan.');
-    }
+    }       
 
     public function show(Sale $sale)
     {
